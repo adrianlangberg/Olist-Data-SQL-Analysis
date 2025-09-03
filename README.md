@@ -1,6 +1,9 @@
 # Olist-Data-SQL-Analysis
 
 -- 1A. State-level summary: avg review, avg delivery days, percent late, volume
+
+
+
 SELECT
   c.customer_state,
   ROUND(AVG(r.review_score),2)                    AS avg_review_score,
