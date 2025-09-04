@@ -1,5 +1,5 @@
 # Olist-Data-SQL-Analysis
-
+# Dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 /******************************************************************
  STEP 1: STATE-LEVEL OVERVIEW
