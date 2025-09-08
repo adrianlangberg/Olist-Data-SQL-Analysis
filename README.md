@@ -7,7 +7,7 @@
 
 - **Dataset:** [Brazilian E‑Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)  
 - **SQL Code & Analysis:** *(this repository)*  
-- **Interactive Tableau Dashboard:** [View Dashboard](https://public.tableau.com/shared/ZBTD6HJQ3?:display_count=n&:origin=viz_share_link)  
+- **Step by step process Tableau Dashboard:** [View Dashboard](https://public.tableau.com/shared/ZBTD6HJQ3?:display_count=n&:origin=viz_share_link)  
 - **Final Presentation:** [View PowerPoint](https://1drv.ms/p/c/2eea264b2751569d/EfihWiY1ZvNFlQd9hOOg_i0BtYPjxFD3Cln8KftUM6Gc-Q?e=Am8xQT)
 
 
