@@ -1,5 +1,8 @@
 # Olist-Data-SQL-Analysis
 # Dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+# Tableau Dashboard: https://public.tableau.com/shared/ZBTD6HJQ3?:display_count=n&:origin=viz_share_link
+# PowerPoint Presentation: https://1drv.ms/p/c/2eea264b2751569d/EfihWiY1ZvNFlQd9hOOg_i0BtYPjxFD3Cln8KftUM6Gc-Q?e=Am8xQT
+
 
 /******************************************************************
  STEP 1: STATE-LEVEL OVERVIEW
