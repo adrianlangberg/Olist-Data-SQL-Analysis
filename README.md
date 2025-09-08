@@ -1,4 +1,4 @@
-# **Olist E‑Commerce Data Analysis**
+# **Olist E‑Commerce Data Analysis by Adrian Langberg**
 
 **Goal:** Identify factors affecting customer satisfaction and delivery performance in Brazilian e‑commerce orders.  
 
