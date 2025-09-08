@@ -16,7 +16,10 @@ SQL • Excel • Tableau • Data Cleaning • Data Visualization • Business 
 📊 Key Insights
 - Rio de Janeiro ranked among the lowest average review scores and highest late delivery rates.
 - Delivery delays strongly correlated with lower customer satisfaction.
-- Freight‑to‑price ratio impacted review scores in certain product categories.
+- Months of March and December had the most amount of late scores.
+- Categories like Home & Bath, Electronics and Sports and Leisure drove the majority of complaints.
+- A small number of sellers were responsible for a disproportionate share of complaints.
+- Listed sellers should be contacted to address performance issues and implement corrective actions. 
 📂 Project Structure
 - Data Cleaning & Preparation – SQL scripts to join, filter, and clean datasets.
 - Exploratory Data Analysis – State‑level summaries, delivery performance metrics, and review score trends.
