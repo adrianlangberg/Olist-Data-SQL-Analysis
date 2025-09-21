@@ -12,7 +12,7 @@
 
 
 🛠 Tools & Skills Used
-SQL • Excel • Tableau • Data Cleaning • Data Visualization • Business Insights
+SQL • Excel • Python • Tableau • Data Cleaning • Data Visualization • Business Insights
 📊 Key Insights
 - Rio de Janeiro ranked among the lowest average review scores and highest late delivery rates.
 - Delivery delays strongly correlated with lower customer satisfaction.
@@ -284,13 +284,68 @@ WITH cleaned_reviews AS ( SELECT r.review_id, LOWER(regexp_replace(e.english_com
 
 
 
+# STEP 10: Translate, extract keywords, and analyze sentiment in Python
+
+from googletrans import Translator
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from textblob import TextBlob
+from collections import Counter
+import nltk
+
+# Download NLTK data (only needed once)
+nltk.download('punkt')
+nltk.download('stopwords')
+
+# Example: Replace with results from the SQL query above
+comments_pt = [
+    "O produto chegou atrasado e a embalagem estava danificada.",
+    "Excelente qualidade, recomendo a todos!",
+    "O atendimento ao cliente foi muito ruim."
+]
+
+# 1. Translate Portuguese comments to English
+translator = Translator()
+comments_en = [translator.translate(text, src='pt', dest='en').text for text in comments_pt]
+
+# 2. Keyword extraction
+stop_words = set(stopwords.words('english'))
+all_words = []
+
+for comment in comments_en:
+    tokens = word_tokenize(comment.lower())
+    filtered_tokens = [word for word in tokens if word.isalpha() and word not in stop_words]
+    all_words.extend(filtered_tokens)
+
+keyword_counts = Counter(all_words)
+top_keywords = keyword_counts.most_common(10)
+
+# 3. Sentiment analysis
+sentiments = [(comment, TextBlob(comment).sentiment.polarity) for comment in comments_en]
+
+# Output results
+print("Translated Comments:")
+for c in comments_en:
+    print("-", c)
+
+print("\nTop Keywords:")
+for word, freq in top_keywords:
+    print(f"{word}: {freq}")
+
+print("\nSentiment Scores (Polarity):")
+for comment, score in sentiments:
+    print(f"{comment} -> {score}")
+
+
+
+
 -- Master query Template
 
 WITH cleaned_reviews AS ( SELECT r.review_id, r.order_id, LOWER(regexp_replace(e.english_comment, '[^\w\s]+', '', 'g')) AS cleaned_comment FROM reviews r JOIN english e ON r.review_id = e.review_id WHERE r.review_score <= 2 AND e.english_comment IS NOT NULL AND e.english_comment <> '' ), categorized_reviews AS ( SELECT cr.review_id, cr.order_id, ik.category FROM cleaned_reviews cr JOIN issue_keywords ik ON cr.cleaned_comment ILIKE '%' || ik.keyword || '%' ), review_items AS ( SELECT ci.review_id, oi.seller_id, p.product_category_name FROM categorized_reviews ci JOIN order_items oi ON ci.order_id = oi.order_id JOIN products p ON oi.product_id = p.product_id ) SELECT ri.seller_id, ri.product_category_name, cr.category, COUNT(DISTINCT ri.review_id) AS review_count FROM review_items ri JOIN categorized_reviews cr ON ri.review_id = cr.review_id GROUP BY cr.category, ri.seller_id, ri.product_category_name ORDER BY cr.category, review_count DESC;
 
 
 /******************************************************************
- STEP 10: RJ DEEP DIVES — LATE / NOT DELIVERED (RJ)
+ STEP 11: RJ DEEP DIVES — LATE / NOT DELIVERED (RJ)
  Goal: Late/not delivered by seller, category, city, timeline, month
 ******************************************************************/
 
